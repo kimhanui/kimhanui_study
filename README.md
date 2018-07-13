@@ -8,7 +8,6 @@ int main()
 printf("Hello World");
 }
 ```
-#practice
-##practice
-###practice
-####practice
+으아아~~과제~~하기 싫다
+으아아**과제**하기 싫다
+으아아*과제*하기 싫다
