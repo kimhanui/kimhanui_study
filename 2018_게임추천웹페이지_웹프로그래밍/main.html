@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GLGD</title>
+    <meta charset="utf-8">
+    <script>
+        var i=0;
+        var arr = ['data/pop1.jpg','data/pop2.jpg','data/pop3.jpg','data/pop4.jpg'];
+        
+        function popoimg(){
+            if (i>3){
+                i=0;
+            }
+            document.getElementById("POP").src=arr[i];
+            i++;
+            setTimeout(popoimg,3000);
+        }
+        
+        function go(text) {
+            location.href = text;
+            target="_self";
+        }
+
+        function pop() {
+            document.getElementById("eventPop").style.display = "none";
+        }
+    </script>
+    <style>
+        body {
+            padding: 0px;
+            background-image: url('data/back.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            background-attachment: fixed;
+        }
+
+        b {
+            font-size: 20px;
+        }
+
+        .pic {
+            opacity: 1;
+            position: absolute;
+            z-index: 0;
+        }
+
+        .pic:hover {
+            opacity: 0.6;
+            transform: scale(1.05, 1.05);
+            z-index: 1;
+        }
+
+        .div1 {
+            margin: auto;
+            width: 1020px;
+            height: 670px;
+            text-align: center;
+        }
+
+        #pic1 {
+            width: 600px;
+            height: 410px;
+            background-image: url('data/la.jpg');
+            background-size: 100% 100%;
+        }
+
+        #pic2 {
+            margin-left: 610px;
+            width: 410px;
+            height: 200px;
+            background-image: url('data/kda.jpg');
+            background-size: 100% 100%;
+        }
+
+        #pic3 {
+            margin-left: 610px;
+            margin-top: 210px;
+            background-image: url('data/overwatch2.jpg');
+            background-size: 100% 100%;
+            width: 410px;
+            height: 200px;
+        }
+
+        #pic4 {
+            margin-top: 420px;
+            background-image: url('data/maple2_black.jpg');
+            background-size: 100% 100%;
+            width: 300px;
+            height: 250px;
+        }
+
+        #pic5 {
+            margin-top: 420px;
+            margin-left: 310px;
+            background-image: url('data/list6.jpg');
+            background-size: 100% 100%;
+            width: 290px;
+            height: 250px;
+        }
+
+        #pic6 {
+            margin-top: 420px;
+            margin-left: 610px;
+            background-image: url('data/bg.jpg');
+            background-size: 100%100%;
+            width: 410px;
+            height: 250px;
+        }
+
+        #pic-a {
+            width: 320px;
+            height: 300px;
+
+            background-image: url('data/list1.jpg');
+            background-size: 100% 100%;
+        }
+
+        #pic-b {
+            margin-left: 330px;
+            width: 320px;
+            height: 300px;
+
+            background-image: url('data/list5.jpg');
+            background-size: 100% 100%;
+        }
+
+        #pic-c {
+            margin-left: 660px;
+            width: 320px;
+            height: 300px;
+
+            background-image: url('data/list3.jpg');
+            background-size: 100% 100%;
+        }
+
+        #pic-d {
+            margin-top: 310px;
+            width: 320px;
+            height: 300px; //border-radius: 200px 200px 200px 200px ;
+            background-image: url('data/list4.jpg');
+            background-size: 100% 100%;
+        }
+
+        #pic-e {
+            margin-left: 330px;
+            margin-top: 310px;
+
+            width: 320px;
+            height: 300px;
+
+            background-image: url('data/list2.jpg');
+            background-size: 100% 100%;
+        }
+
+        #pic-f {
+            margin-left: 660px;
+            margin-top: 310px;
+
+            width: 320px;
+            height: 300px;
+
+            background-image: url('data/list6.jpg');
+            background-size: 100% 100%;
+        }
+
+
+        .text {
+            width: 70%;
+            background-color: rgb(44, 77, 88, 0.5);
+            color: white;
+
+            position: absolute;
+            margin-left: 0px;
+            margin-bottom: 0px;
+        }
+
+        .text2 {
+            width: 100%;
+            height: 40px;
+            background-color: rgb(44, 77, 88, 0.5);
+            color: white;
+            padding-top: 10px;
+            position: absolute;
+            margin-top: 250px; //border-radius: 0px 0px 200px 200px;
+        }
+
+        nav-ev {
+            z-index: 2;
+            position: fixed;
+            bottom: 200px;
+            right: 20px;
+
+        }
+
+        nav-ht {
+            z-index: 2;
+            position: fixed;
+            bottom: 110px;
+            right: 20px;
+        }
+
+        nav-ga {
+            z-index: 2;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        #content {
+            text-align: center;
+        }
+
+        ._content {
+            display: inline-block;
+            width: 1000px;
+            margin: auto;
+        }
+
+        #eventTable {
+            background-size: cover;
+            width: 800px;
+            height: 400px;
+            opacity: 1;
+        }
+
+        #eventPop {
+            position: fixed;
+            z-index: 2;
+            width: 70%;
+            height: 80%;
+            top: 10%;
+            left: 15%;
+            opacity: 1;
+            display: block;
+            background-image:url('data/popback.jpg');
+            background-size:contain;
+            border-radius: 80px;
+        }
+
+        #popButton {
+            text-align: center;
+            font-size: 12px;
+            padding: 5px;
+            margin-top: 20px;
+            width: 140px;
+            height: 40px;
+            background-color: #ffc827;
+            border: none;
+            display: inline-block;
+            color: saddlebrown;
+            font-weight: bold;
+            font-size: 15px;
+            border-radius: 10px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!----------------------이벤트 팝업----------------------->
+    <div id="eventPop">
+        <h2 style="margin:0; font-size: 60px; text-align:center;color:greenyellow;text-shadow: 7px 7px 0px hotpink;">Event</h2><br><br>
+        <table align="center">
+            <tr style="text-align: center;">
+                <td id="eventTable">
+                    <img src="data/pop1.jpg" width="100%" height="auto" id="POP">
+                </td>
+            </tr>
+        </table>
+        <div style="text-align: center;">
+            <button type="button" id="popButton" onclick="go('review.html')">이벤트 바로가기</button>&nbsp;&nbsp;
+            <button type="button" id="popButton" onclick="pop()">창 닫기</button>
+        </div>
+    </div>
+    
+    <script>
+        popoimg(); //자동 넘김
+    </script>
+    <!--------------------------오른쪽 하단 nav------------------------------>
+    <nav-ev>
+        <img src="data/event.jpg" width="70px" height="70px" onclick="go('main.html')">
+    </nav-ev>
+
+    <nav-ht>
+        <img src="data/ht.jpg" width="70px" height="70px" onclick="go('main.html#HT')">
+    </nav-ht>
+    <nav-ga>
+        <img src="data/ga.jpg" width="70px" height="70px" onclick="go('main.html#GAMEA')">
+    </nav-ga>
+    <!------------------------------------------------------------>
+    <p id="event">&nbsp;</p>
+    <p style="color:greenyellow;text-align:center;font-size:30px; font-weight:bold;text-shadow:3px 3px 0px blue,6px 6px 0px hotpink;margin-top:150px">게임에 살고 게임에 죽는다<br>게임 커뮤니티</p>
+    <p style="color:hotpink;text-align: center;font-size:160px;font-weight: bold;text-shadow: 7px 7px 0px yellow,14px 14px 0px blue, 21px 21px 0px greenyellow; margin-top:10px; margin-bottom:10px;">GLGD</p>
+    <p style="color:greenyellow;text-align:center;font-size:30px; font-weight:bold;text-shadow:3px 3px 0px blue,6px 6px 0px hotpink;margin-top:10px">겜 생 겜 사</p>
+    <div id="content" >
+        <div class="_content" style="margin-top:1000px;">
+            <div id="HT">
+                <div style="margin: auto;width: 600px; height: 200px;">
+                    <h2 style="font-size: 60px; text-align:center;color:greenyellow;text-shadow: 7px 7px 0px hotpink">Hot Topic</h2>
+                    <h3 style="font-size: 30px; text-align: center;color:skyblue;text-shadow: 4px 4px 0 black">11월 Top 6</h3>
+                </div>
+
+                <div>
+                    <div class="pic" id="pic1" onclick="go('html/content.html#direct_la')">
+                        <!--새로운 경로쓰는 법--->
+                        <div class="text">
+                            <b>11월 신작 로스트 아크!</b><br>겜생겜사팀
+                            <br>조회수 122만회 | 3주 전</div>
+                    </div>
+
+                    <div class="pic" id="pic2" onclick="go('html/content.html#direct_kda')">
+                        <div class="text">
+                            <b>[LoL]KDA-Pop/Star</b><br>겜생겜사팀
+                            <br>조회수 100만회 | 3주 전</div>
+                    </div>
+
+                    <div class="pic" id="pic3" onclick="go('html/content.html#direct_over')">
+                        <div class="text">
+                            <b>[오버워치]떠나가는 유저들!</b><br>겜생겜사팀
+                            <br>조회수 60만회 | 3주 전</div>
+                    </div>
+
+                    <div class="pic" id="pic4" >
+                        <div class="text">
+                            <b>[메이플 스토리]인싸게임!</b><br>겜생겜사팀
+                            <br>조회수 16만회 | 3주 전</div>
+
+                    </div>
+
+                    <div class="pic" id="pic5" >
+                        <div class="text">
+                            <b>[데바데]할로윈 DLC 출시!</b><br>겜생겜사팀
+                            <br>조회수 30만회 | 3주 전</div>
+                    </div>
+
+                    <div class="pic" id="pic6" >
+                        <div class="text">
+                            <b>[배그]블루홀은 핵을 잡을 것인가</b><br>겜생겜사팀
+                            <br>조회수 29만회 | 3주 전</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!------------------------------------------------------->
+        <div class="_content" style="margin-top:1000px">
+            <div id="GAMEA" style="margin: auto;width: 600px; height: 200px;">
+                <h2 style="font-size: 60px; text-align:center;color:greenyellow;text-shadow: 7px 7px 0px hotpink">Game Array</h2>
+
+            </div>
+
+            <div >
+
+                <div class="pic" id="pic-a" onclick="go('html/bg.html')">
+                    <!--새로운 경로쓰는 법--->
+                    <div class="text2">
+                        <b>배틀그라운드</b></div>
+                </div>
+
+                <div class="pic" id="pic-b" onclick="go('html/la.html')">
+                    <div class="text2">
+                        <b>오버워치</b></div>
+                </div>
+
+                <div class="pic" id="pic-c" onclick="go('html/lol.html')">
+                    <div class="text2">
+                        <b>롤</b></div>
+                </div>
+
+                <div class="pic" id="pic-d">
+                    <div class="text2">
+                        <b>메이플 스토리</b></div>
+                </div>
+
+
+                <div class="pic" id="pic-e">
+                    <div class="text2">
+                        <b>로스트 아크</b></div>
+                </div>
+
+
+                <div class="pic" id="pic-f">
+                    <div class="text2">
+                        <b>Day by Dead</b></div>
+                </div>
+
+
+                <br> <!--이게 없으면 GameArray이랑 이미지 버튼간격 멀어짐-->
+                <footer style="margin-top:800px"></footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

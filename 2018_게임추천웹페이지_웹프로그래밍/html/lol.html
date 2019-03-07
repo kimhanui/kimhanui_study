@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>리그오브레전드</title>
+    <meta charset="utf-8">
+    <script>
+        var x = 0;
+
+        function bttlol() {
+            location.href = "http://www.leagueoflegends.co.kr/";
+        }
+
+        function navList() {
+            if (x == 0) {
+                document.getElementById("nlist").style.display = "block";
+                x = 1;
+            } else if (x == 1) {
+                document.getElementById("nlist").style.display = "none";
+                x = 0;
+            }
+        }
+        function go(text) {
+            location.href = text;
+            target: _self;
+        }
+
+        //전체보기
+        function clickBg() {
+            location.href = "bg.html";
+        }
+
+        function clickLa() {
+            location.href = "la.html";
+        }
+
+        function clicklol() {
+            location.href = "lol.html";
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        nav {
+            z-index: 2;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: rgb(0, 0, 0, 0.4);
+
+        }
+
+        nav-list {
+            z-index: 1;
+            position: fixed;
+            background-color: rgb(0, 0, 0, 0.7);
+            width: 250px;
+            height: 100%;
+            top: 50px;
+            left: 0;
+            color: white;
+            padding: 10px;
+            display: none;
+        }
+        
+        nav-ev{
+            z-index:1;
+            position:fixed;
+            bottom:200px;;
+            right: 20px;
+            
+        }
+
+        nav-ht {
+            z-index: 1;
+            position: fixed;
+            bottom: 110px;
+            right: 20px;
+        }
+
+        nav-ga {
+            z-index: 1;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        #nav-list {
+            width: 35px;
+            height: auto;
+            float: left;
+            padding: 10px;
+        }
+
+        #nav-title {
+            float: right;
+            width: 100px;
+            height: auto;
+            padding: 5px 50px;
+        }
+
+
+
+        #nav-listfont {
+            color: white;
+            float: left;
+            padding: 13px 0px;
+        }
+
+        #nav-listfont:hover {
+            color: #ffc827;
+        }
+
+        header {
+            position: relative;
+            height: 1600px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+
+        }
+
+        #header-logo {
+            margin-top: 250px;
+        }
+
+        #header-p1 {
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            text-shadow: 2px 2px 2px black;
+        }
+
+        #header-p2 {
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            text-shadow: 2px 2px 2px black;
+        }
+
+        #header-p3 {
+            color: #ffc827;
+            font-size: 25px;
+            font-weight: bold;
+            text-shadow: 2px 2px 2px black;
+
+        }
+
+        #header-btt {
+            width: 140px;
+            height: 40px;
+            background-color: #ffc827;
+            border: none;
+            text-align: center;
+            display: inline-block;
+            color: saddlebrown;
+            font-weight: bold;
+            font-size: 15px;
+            border-radius: 10px;
+        }
+
+        #title-div {
+            text-align: center;
+            font-size: 20px;
+            color: #ffc827;
+            font-weight: bold;
+            text-shadow: 1px 1px 0px rgb(252, 145, 27);
+
+        }
+
+        #title-hr {
+            background-color: #ffc827;
+            border-color: #ffc827;
+            box-shadow: 1px 1px 0px rgb(252, 145, 27);
+        }
+
+        #gameImg {
+            float: left;
+            width: 80px;
+            height: 80px;
+            margin-top: 8px;
+        }
+
+        #gameList {
+            float: right;
+            font-size: 12px;
+            text-align: right;
+        }
+
+        #glist {
+            width: 100%;
+            height: 80px;
+        }
+
+        #glist:hover {
+            color: rgb(252, 145, 27);
+        }
+
+        #nlist-btt {
+            float: right;
+            border-radius: 5px;
+            background-color: #ffc827;
+            border: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        #text {
+            text-align: center;
+
+        }
+
+        th,td {
+            padding: 10px;
+
+        }
+        
+        th {
+            background-color:#ffc827;        
+        }
+    </style>
+</head>
+
+<body>
+    <!-----상단 nav----->
+    <nav>
+        <img src="../data/list-icon.jpg" id="nav-list" onclick="navList()">
+        <b id="nav-listfont" onclick="navList()">전체보기</b>
+        <a href="lol.html"><img src="../data/lol_logo.jpg" id="nav-title">
+        </a>
+    </nav>
+
+    <!------왼쪽 nav-------->
+    <nav-list id="nlist">
+        <b>Game List</b>
+        <br><br>
+        <div id="glist" onclick="clickBg()">
+            <img src="../data/list1.jpg" id="gameImg">
+            <p id="gameList">
+                <b style="color:#ffc827;font-size:18px;">Battle Ground</b><br><br>"최후의 1인"<br>죽음에 맞선 장엄한 싸움
+            </p>
+        </div>
+
+        <br style="clear:both;">
+        <div id="glist" onclick="clickLa()">
+            <img src="../data/list5.jpg" id="gameImg">
+            <p id="gameList">
+                <b style="color:#ffc827;font-size:18px;">Overwatch</b><br><br>최고의 현재 진행형 게임<br>THE GAME AWARDS
+            </p>
+        </div>
+
+        <br style="clear:both;">
+        <div id="glist" onclick="clicklol()">
+            <img src="../data/list3.jpg" id="gameImg">
+            <p id="gameList">
+                <b style="color:#ffc827;font-size:18px;">League of Legends</b><br><br>치열한 대전<br>최고의 e스포츠
+            </p>
+        </div>
+        <br style="clear:both;">
+        <div id="glist">
+            <img src="../data/list4.jpg" id="gameImg">
+            <p id="gameList">
+                <b style="color:#ffc827;font-size:18px;">Maple Story</b><br><br>인싸들의 모임<br>인싸들의 향연
+            </p>
+        </div>
+
+        <br style="clear:both;">
+        <div id="glist">
+            <img src="../data/list2.jpg" id="gameImg">
+            <p id="gameList">
+                <b style="color:#ffc827;font-size:18px;">Lost Ark</b><br><br>세계의 탄생<br>다시, MMORPG
+            </p>
+        </div>
+
+        <br style="clear:both;">
+        <div id="glist">
+            <img src="../data/list6.jpg" id="gameImg">
+            <p id="gameList">
+                <b style="color:#ffc827;font-size:18px;">Dead By Daylight</b><br><br>극강의 공포와 생존<br>멀티플레이 전용 게임
+            </p>
+        </div>
+        <br style="clear:both;">
+
+    </nav-list>
+
+
+    <!--------------------------오른쪽 하단 nav------------------------------>
+    
+    <nav-ev>
+        <img src="../data/event.jpg" width="70px" height="70px" onclick="go('../main.html#event')">
+    </nav-ev>
+    
+   <nav-ht>
+        <img src="../data/ht.jpg" width="70px" height="70px" onclick="go('../main.html#HT')">
+    </nav-ht>
+    <nav-ga>
+        <img src="../data/ga.jpg" width="70px" height="70px" onclick="go('../main.html#GAMEA')">
+    </nav-ga>
+    <!------------------------여기부터 내용------------------------->
+
+    <header style="background-image:url('../data/lol.jpg');">
+        <img src="../data/lol_logo.jpg" id="header-logo" width="450px">
+        <p id="header-p1">치열한 대전</p><br><br><br><br>
+        <p id="header-p2">전략적인 판단과 팀플레이<br><br>박진감 넘치는 전투!</p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <span id="header-p3">리그오브레전드 홈페이지</span><br><br>
+        <button type="button" id="header-btt" onclick=(bttlol())>바로가기</button>
+    </header>
+    <br><br>
+    <div id="title-div">
+        <hr align="center" size="2" width="100" noshade id="title-hr">
+        <p>Legue of Legends</p>
+    </div>
+    <div id="text">
+        <table border="0" align="center" style="table-layout:fixed;">
+            <tr>
+                <td width="80px">
+                    <img src="../data/person.jpg" width="70px">
+                </td>
+                <td width="80px">
+                    <img src="../data/time.jpg" width="70px">
+                </td>
+                <td width="80px">
+                    <img src="../data/riot.jpg" width="80px">
+                </td>
+                <td width="80px">
+                    <img src="../data/15세.jpg" width="70px">
+                </td>
+                <td width="80px">
+                    <img src="../data/moba.jpg" width="70px">
+                </td>
+            </tr>
+            <tr style="padding:1px;font-size:12px">
+                <th>최대 5명</th>
+                <th>15~45min</th>
+                <th>라이엇게임즈</th>
+                <th>연령</th>
+                <th>MOBA</th>
+            </tr>
+        </table>
+    </div>
+
+    <br style="clear:both"><br><br><br><br><br>
+    <div id="title-div">
+        <hr align="center" size="2" width="100" noshade id="title-hr">
+        <p>특징</p>
+    </div>
+    <br><br><br>
+    <table border="0" align="center" style="text-align:center;table-layout: fixed;">
+        <tr style="font-size:15px;padding:1px;font-weight: bold">
+            <th>그래픽</th>
+            <th>폭력성</th>
+            <th>대기시간</th>
+        </tr>
+        <tr>
+            <td style="width:120px;">
+                <img src="../data/star.jpg" width="30px;">
+                <img src="../data/star.jpg" width="30px;"><br>
+                <img src="../data/star.jpg" width="30px;">
+            </td>
+            <td style="width:120px"><img src="../data/star.jpg" width="30px;">
+            </td>
+            <td style="width:120px">
+                <img src="../data/star.jpg" width="30px;">
+                <img src="../data/star.jpg" width="30px;"><br>
+                <img src="../data/star.jpg" width="30px;">
+                
+            </td>
+        </tr>
+        <tr>
+            <th colspan="3" style="padding:0;height:3px;"></th>
+        </tr>
+    </table>
+    <br style="clear:both"><br><br><br><br><br>
+    <div id="title-div">
+        <hr align="center" size="2" width="100" noshade id="title-hr">
+        <p>추천</p>
+    </div>
+    <div style="text-align:center">
+        <table align="center">
+            <tr>
+                <th width="150px">A</th>
+                <th width="150px">B</th>
+                <th width="150px">C</th>
+            </tr>
+            <tr>
+                <td>온 세상 사람들의<br>부모님 안부를<br>알고 싶은 분!</td>
+                <td>kda 영상은 보는데<br>롤은<br>안하시는 분!</td>
+                <td>롤을 시작하는 순간<br>130이상의 챔피언과<br>인싸체험을?!</td>
+            </tr>
+            <tr>
+                <th width="150px">D</th>
+                <th width="150px">E</th>
+                <th width="150px">F</th>
+            </tr>
+            <tr>
+                <td>게임은<br>하고 싶은데<br>3D울렁증이<br>있는 분!</td>
+                <td>컴사양이<br>ㅈㅌㅊ!</td>
+                <td>고3 수험생! 취준생!<br>공시생!!!!<br>환영!!!!!!</td>
+            </tr>
+        </table>
+    </div>
+
+    <br><br>
+    <footer style="text-align:center;font-size:10px;">
+        <br><br>
+        <hr align="center" size="1" noshade width="100%"> copylight&copy;겜생겜사<br><br>
+        17012867 김성빈<br>
+        17011832 김남훈<br>
+        17010491 이경은<br>
+        17011797 김하늬<br><br>
+        sejong Univ. web programming class<br>
+        <b style="color:green">Game Life Game Die Team</b>
+    </footer>
+</body>
+
+</html>
