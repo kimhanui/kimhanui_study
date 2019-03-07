@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>event</title>
+    <meta charset="utf-8">
+    <script>
+        var abc = [];
+        var chk = [];
+        var i;
+        for (i = 0; i < 10; i++) {
+            chk[i] = 0;
+        }
+
+        var cnt = 0;
+        //var pr_gage=10;	//문항수
+        function re() {
+            for (i = 0; i < 10; i++) {
+                chk[i] = 0;
+            }
+            cnt = 0;
+
+            document.getElementById("progress_num").innerHTML = (cnt) * 10;
+            document.getElementById("done").style.width = ((cnt) * 10) + "%";
+        }
+
+        function progress(var1) {
+            if (chk[var1] == 0) {
+                cnt++;
+                document.getElementById("progress_num").innerHTML = (cnt + 1) * 10;
+                document.getElementById("done").style.width = ((cnt + 1) * 10) + "%";
+                chk[var1]++;
+            }
+        }
+
+        function fin() {
+            var var1 = confirm('제출 시 수정할 수 없습니다. 계속하시겠습니까?');
+            var i = 0;
+            var btt;
+            var str="<p>성별 : ";
+            var check1=0,check2=0,check3=0;
+
+            if (var1) {
+                document.getElementById("announcement").style.display = "block";
+                
+                var radio_btn = document.getElementsByName("q1");
+                for (var i = 0; i < radio_btn.length; i++) {
+                    if (radio_btn[i].checked == true) {
+                        str += radio_btn[i].value + "<br>연령 : ";
+                        check1=1;
+                    }
+                }
+
+
+                var radio_btn = document.getElementsByName("q2");
+                for (var i = 0; i < radio_btn.length; i++) {
+                    if (radio_btn[i].checked == true) {
+                        str += radio_btn[i].value + "<br>장르 : ";
+                        check2=1;
+                    }
+                }
+
+                var radio_btn = document.getElementsByName("q3");
+                for (var i = 0; i < radio_btn.length; i++) {
+                    if (radio_btn[i].checked == true) {
+                        str += radio_btn[i].value + "<br>";
+                        check3=1;
+                    }
+                }
+                
+                str+="</p>";
+                
+                if (check1==0||check2==0||check3==0){
+                    str="<p>모두 체크해주세요!</p>";
+                }
+                document.getElementById("ans").innerHTML=str;
+
+            }
+        }
+
+
+
+        function prev() {
+            var var1 = confirm('이전으로 되돌아갈 시 작성한 내용이 지워집니다. 계속하시겠습니까?');
+            //	if(var1) 
+        }
+
+        function close_announce() {
+            document.getElementById("announcement").style.display = "none";
+            location.href="review.html";
+        }
+        var sizeOfFont = 16;
+
+        function smaller() {
+            --sizeOfFont;
+            var var1 = document.getElementById("textfont");
+            var1.style.fontSize = (sizeOfFont) + "px";
+            var var2 = document.getElementById("surv1");
+            var2.style.fontSize = (sizeOfFont) + "px";
+        }
+
+        function bigger() {
+            ++sizeOfFont;
+            var var1 = document.getElementById("textfont");
+            var1.style.fontSize = (sizeOfFont) + "px";
+            var var2 = document.getElementById("surv1");
+            var2.style.fontSize = (sizeOfFont) + "px";
+        }
+
+        function startBttC() {
+            document.getElementById("pro").style.display = "block";
+            document.getElementById("content").style.display = "block";
+            location.href = "review.html#content";
+        }
+
+        function endBttC() {
+
+        }
+    </script>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .div1 {
+            margin: auto;
+            width: 1020px;
+            height: 670px;
+
+        }
+
+        #content {
+            text-align: center;
+            margin-top: 100px;
+            display: none;
+        }
+
+        ._content {
+            display: inline-block;
+            width: 1000px;
+            margin: auto;
+        }
+
+        #rest {
+            height: 200px;
+            text-align: center;
+            padding: auto;
+        }
+
+        header {
+            position: relative;
+            height: 1000px;
+            background-image: url('reviewData/back.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+            z-index: 999;
+            padding: 0;
+            margin: 0;
+        }
+
+        #btt {
+            display: inline-block;
+            background-color: #692dff;
+            box-shadow: 1px 1px 0px hotpink;
+            border: none;
+            font-weight: bold;
+            border-radius: 10px;
+            width: 30px;
+            height: 20px;
+            font-size: 16px;
+        }
+
+        #blank {
+            height: 100px;
+        }
+
+        #startBtt {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            width: 200px;
+            background-color: #ffc827;
+            border-radius: 50px;
+            border-style: none;
+            font-size: 30px;
+            font-weight: bold;
+            color: #692dff;
+            text-shadow: 2px 2px 0px hotpink;
+        }
+
+        #endBtt {
+            padding: 10px;
+            width: 80px;
+            font-weight: bold;
+            background-color: #ffc827;
+            border-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <!--글자 크기 조절시, 내용만 조절할지 제목까지 조절할지 결정하기.-->
+        <div style="top:40px;right:20px;z-index:1;position: fixed;">
+            <span id="textfont" style="font-size:16px;color:#692dff;text-shadow:0.5px 0.5px 0px hotpink;">
+            <b>글자 크기</b>
+            <button type="button" id="btt" onclick="smaller()">-</button>
+            <button type="button" id="btt" onclick="bigger()">+</button>
+            </span>
+        </div>
+        <div style="height:100px"></div>
+        <p style="color:hotpink;text-align: center;font-size:160px;font-weight: bold;text-shadow: 7px 7px 0px yellow,14px 14px 0px blue, 21px 21px 0px greenyellow;margin-top:0px;padding:0;margin-bottom:0px;">EVENT</p>
+        <p style="text-align: center;font-size:80px;font-weight: bold;color:greenyellow;text-shadow: 7px 7px 0px hotpink; margin-top:1px;">survey</p>
+        <div id="blank"></div>
+        <button type=button id="startBtt" onclick="startBttC()">시작</button>
+
+    </header>
+
+    <!--------------완료팝업--------------------->
+    <div id="announcement" style="opacity:0.8;background-color:black;position:fixed;width:100%;height:100%;top:0px;left:0px;font-size:20px;font-weight:bold; z-index:99999; display:none;">
+        <div style="padding:10px; text-align:center; background-color: white; position:absolute; top:40%; left:40%; border: 5px solid black;">
+            <strong>응답해 주셔서 감사합니다.<br>경품은.. 유감입니다!ㅎㅎ!</strong>
+            <br><br>
+            <h2 align="center"></h2>
+            <div style="text-align:center;font-size:20px;" id="ans">결과 없음...
+            </div>
+            <hr align="center" size="1" width="90%" noshade="noshade">
+            <button type=button id="endBtt" onclick="close_announce()">창 닫기</button>
+        </div>
+    </div>
+
+    <div id="content">
+        <!-----------진행률------------------->
+        <div id="pro" style="display:none; position:fixed; top:10px; margin-left: 20px; width:95%; height:20px; z-index:999;">
+            <div id="progress" style="width:100%; height:20px; border:1px solid black; background-color:#ffc827;border-radius: 30px;">
+                <div id="done" style="width:10%; height:20px; background-color:#692dff; border-radius: 30px; 
+			color:white; font-weight:bold; border:1px solid black;display:block;">
+                    <span style="font-size:13px; ">진행률 : <span id="progress_num" style="background-color:#692dff; color:white;">10</span>%</span>
+                </div>
+            </div>
+        </div>
+        <!---------------------------------------->
+        <div class="_content" id="rest" style="text-align:center;">
+            <br><br><br>
+            <h2 style="font-size: 60px; text-align:center;text-shadow: 2px 2px 0px #692dff">게임 취향 조사</h2>
+            <h3 style="text-shadow: 1px 1px 0px #692dff">겜생겜사팀 | 응답자 수:512명 | 2018-11-29 ~ 2018-12-04</h3>
+            <br><br><br> 앞으로의 페이지 개발을 위한 조사입니다.<br>설문자들의 답변을 토대로 더 나은 페이지를 만들겠습니다.<br><br><br><br><br><br><br><br><br><br><br><br>
+            <img src="reviewData/d.jpg" width="100px">
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+            <form name="form">
+                <fieldset id="surv1" style="border-top:0px; border-bottom:0px; width:100%; height:100%;">
+                    <legend><b style="font-size:60px;color:#692dff;text-shadow: 2px 2px 0px hotpink;">survey</b></legend>
+                    <br><br><br>
+                    <br><br><br><br>
+                    <hr align="center" noshade="noshade" id="bodyHr" size="2" width="50px">
+                    <p style="font-size:30px;font-weight: bold;text-shadow: 1.5px 1.5px 0px hotpink">성별</p>
+                    <input type="radio" name="q1" value="M" onclick="progress(1)">남자&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q1" value="F" onclick="progress(1)">여자
+
+                    <br><br><br><br>
+                    <hr align="center" noshade="noshade" id="bodyHr" size="2" width="50px">
+                    <p style="font-size:30px;font-weight: bold;text-shadow: 1.5px 1.5px 0px hotpink">연령</p>
+                    <input type="radio" name="q2" value="10대" onclick="progress(2)">10대&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q2" value="20대" onclick="progress(2)">20대&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q2" value="30대" onclick="progress(2)">30대&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q2" value="40대" onclick="progress(2)">40대&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q2" value="50" onclick="progress(2)">50대&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <br><br><br><br>
+                    <hr align="center" noshade="noshade" id="bodyHr" size="2" width="50px">
+                    <p style="font-size:25px;font-weight: bold;text-shadow: 1.5px 1.5px 0px hotpink">좋아하는 게임 장르는 무엇인가요?</p>
+                    <div class="surv_op">
+                        <input type="radio" name="q3" value="RPG" onclick="progress(3)">RPG&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="q3" value="AOS" onclick="progress(3)">AOS&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="q3" value="스포츠" onclick="progress(3)">스포츠&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="q3" value="캐주얼" onclick="progress(3)">캐주얼&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="q3" value="기타" onclick="progress(3)">기타&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+
+
+                    <br><br><br><br>
+                    <hr align="center" noshade="noshade" id="bodyHr" size="2" width="50px">
+                    <p style="font-size:25px;font-weight: bold;text-shadow: 1.5px 1.5px 0px hotpink">즐겨하는 게임 플랫폼은 무엇인가요?</p>
+                    <input type="radio" name="q4" value="컴퓨터" onclick="progress(4)">컴퓨터&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q4" value="모바일" onclick="progress(4)">모바일&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q4" value="콘솔" onclick="progress(4)">콘솔&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q4" value="오락실기계" onclick="progress(4)">오락실기계&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q4" value="기타" onclick="progress(4)">기타&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                    <br><br><br><br>
+                    <hr align="center" noshade="noshade" id="bodyHr" size="2" width="50px">
+                    <p style="font-size:25px;font-weight: bold;text-shadow: 1.5px 1.5px 0px hotpink">게임을 선택하는 기준은 무엇인가요?</p>
+                    <input type="radio" name="q5" value="독창성" onclick="progress(5)">독창성&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q5" value="타격감" onclick="progress(5)">타격감&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q5" value="사운드" onclick="progress(5)">사운드&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q5" value="그래픽" onclick="progress(5)">그래픽&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q5" value="캐릭터" onclick="progress(5)">캐릭터&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                    <br><br><br><br>
+                    <hr align="center" noshade="noshade" id="bodyHr" size="2" width="50px">
+                    <p style="font-size:25px;font-weight: bold;text-shadow: 1.5px 1.5px 0px hotpink">게임을 구매할 때 가장 중요한 것은 무엇인가요?</p>
+                    <input type="radio" name="q6" value="개발자" onclick="progress(6)">개발자&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q6" value="스토리" onclick="progress(6)">스토리&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q6" value="멀티플레이" onclick="progress(6)">멀티플레이&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q6" value="게임장르" onclick="progress(6)">게임장르&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q6" value="가격" onclick="progress(6)">가격&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <br><br><br><br>
+                    <hr align="center" noshade="noshade" id="bodyHr" size="2" width="50px">
+                    <p style="font-size:25px;font-weight: bold;text-shadow: 1.5px 1.5px 0px hotpink">겜생겜사 페이지의 첫인상은?</p>
+                    <input type="radio" name="q7" value="좋아요!" onclick="progress(7)">좋아요!&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q7" value="그저그렇다" onclick="progress(7)">그저그렇다&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q7" value="별로임.." onclick="progress(7)">별로임..&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <br><br><br><br>
+                    <hr align="center" noshade="noshade" id="bodyHr" size="2" width="50px">
+                    <p style="font-size:25px;font-weight: bold;text-shadow: 1.5px 1.5px 0px hotpink">팀플조아?</p>
+                    <input type="radio" name="q8" value="what??" onclick="progress(8)">what??&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q8" value="oh....." onclick="progress(8)">oh...&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q8" value="Nooooo" onclick="progress(8)">Nooooo&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <br><br><br><br>
+                    <hr align="center" noshade="noshade" id="bodyHr" size="2" width="50px">
+                    <p style="font-size:25px;font-weight: bold;text-shadow: 1.5px 1.5px 0px hotpink">메모장은 뭘로 뿌셔야 제맛일까?</p>
+                    <input type="radio" name="q9" value="오함마" onclick="progress(9)">오함마&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q9" value="장미칼" onclick="progress(9)">장미칼&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="q9" value="토르망치" onclick="progress(9)">토르망치&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                    <br><br><br><br><br>
+                    <!--			<input type="submit" value="이전" onclick="prev()">	-->
+                    <input type="reset" value="다시하기" id="endBtt" onclick="re()">
+                    <!--			<input type="submit" value="다음" onclick="next()">	-->
+                    <input type="button" value="완료" id="endBtt" onclick="fin()">
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+
+
+    <br><br>
+    <footer style="text-align:center;font-size:10px;">
+        <br><br>
+        <hr align="center" size="1" noshade width="100%"> copylight&copy;겜생겜사<br><br> 17012867 김성빈<br> 17011832 김남훈<br> 17010491 이경은<br> 17011797 김하늬<br><br> sejong Univ. web programming class<br>
+        <b style="color:green">Game Life Game Die Team</b>
+    </footer>
+</body>
+
+</html>
